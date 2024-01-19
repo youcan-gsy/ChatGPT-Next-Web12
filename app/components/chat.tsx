@@ -99,6 +99,36 @@ export function SessionConfigModel(props: { onClose: () => void }) {
   const session = chatStore.currentSession();
   const maskStore = useMaskStore();
   const navigate = useNavigate();
+function _Chat() {
+  // ... 其他代码 ...
+
+  return (
+    <div className={styles.chat} key={session.id}>
+      {/* 在这里添加公告 */}
+      <div className={styles["chat-announcement"]}>
+        <p>我爱我家</p>
+      </div>
+
+      {/* 聊天主体 */}
+      <div
+        className={styles["chat-body"]}
+        ref={scrollRef}
+        onScroll={(e) => onChatBodyScroll(e.currentTarget)}
+      >
+        {/* 聊天消息渲染部分 */}
+        {/* ... 其他代码 ... */}
+      </div>
+
+      {/* 输入面板 */}
+      <div className={styles["chat-input-panel"]}>
+        {/* ... 其他代码 ... */}
+      </div>
+
+      {/* 其他模态框等组件 */}
+      {/* ... 其他代码 ... */}
+    </div>
+  );
+}
 
   return (
     <div className="modal-mask">
